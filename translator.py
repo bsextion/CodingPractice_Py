@@ -6,8 +6,5 @@ def translate(phrase):
             translation += "g"
         else:
             translation += letter
-    return translation.capitalize();        
-                
-        
-        
-print(translate("zebra"))
+    return translation.capitalize();
+
