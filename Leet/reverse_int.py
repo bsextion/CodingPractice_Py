@@ -44,13 +44,9 @@ class Solution(object):
             x = x // 10
             result = (result * 10) + remainder
         
-            
-            
-            
-            
-        
         if result <= min_int or result >= max_int:
             return 0
+        return result
         
         
-    reverse("", 123)    
+    print(reverse("", 123))
