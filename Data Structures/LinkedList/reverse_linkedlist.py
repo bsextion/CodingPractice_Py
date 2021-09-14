@@ -42,10 +42,14 @@ class LinkedList:
             temp = temp.next_element
         print(temp.data, "-> None")
         return True
-
+from collections import deque
 
 class Node:
     def __init__(self, data):
         self.data = data
         self.next_element = None
 
+def reverse(lst:LinkedList):
+    pass
+
+reverse()

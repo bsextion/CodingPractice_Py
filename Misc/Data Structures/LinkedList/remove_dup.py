@@ -1,3 +1,8 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next_element = None
+
 class LinkedList:
     def __init__(self):
         self.head_node = None
@@ -43,9 +48,26 @@ class LinkedList:
         print(temp.data, "-> None")
         return True
 
+def search(lst:LinkedList, value):
+    temp = lst.get_head()
+    if temp.data == value:
+        return True
+    while(temp):
+        if temp.data == value:
+            return True
+        temp = temp.next_element
 
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next_element = None
+    return False
 
+llist = LinkedList()
+llist.append(1)
+llist.append(6)
+llist.append(1)
+llist.append(4)
+llist.append(2)
+llist.append(2)
+llist.append(4)
+
+llist.remove_dup()
+
+search(llist, 4)
