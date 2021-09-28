@@ -1,0 +1,20 @@
+Read the card, get user id
+User should log in with the correct password
+After successful login the user can the choose what account they want to use (Checking or Saving)
+User can withdraw money but only in increments of 20,
+User can deposit but the minumum is $10
+User can view balance
+User can open an account
+User can close account
+User can transfer money to their savings or checkings account
+
+User (Operator) can add money to the machine
+ATM prints a receipet of each transaction that shows the account balance
+ATM logs out the user after each transaction
+
+Card - number, user_id, pin
+User (Member, Employee) - name, user_id, password, list[account], Card, loggedIn, access
+Account (Checking, Savings) - balance, active, account_number
+ATM - currentUser: None, readCard(cardNumber)-> user_id, login(password) -> boolean, addNewAccount(
+Transaction - withdraw(user_id), deposit(user_id), view_balance(user_id)
+Bank - bank_name, routing_number, List<ATM>, list<users>, createAccount(User)

@@ -1,0 +1,12 @@
+Requirments:
+Users can check out
+Users can return book
+Users are charged a late fee if book is late
+Users can search for a book
+
+Users - Librarion, Member  - user_id, first_name, last_name, dob
+Book - title, isbn, author, genre, isAvaliable
+System - Search, check_if_late
+
+
+User - can check out a bbook, user can search, user can return, user can update status of book

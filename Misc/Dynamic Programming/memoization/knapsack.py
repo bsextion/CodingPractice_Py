@@ -1,17 +1,29 @@
 
 def knapsack(weights, prices, capacity):
-    return solve(len(weights), capacity, weights, prices)
-
-def solve(i, capacity, weights, prices):
-    if i == 0 or capacity == 0:
-        return 0
+    result = []
+    solve(0, capacity, weights, prices, [], [], result)
+    return result[0]
 
 
-    temp1 = solve(i-1, capacity, weights, prices)
-    temp2 = prices[i] + solve(i-1,capacity-weights[i], weights, prices)
-    result = max(temp1, temp2)
 
-    return result
+def solve(i, capacity, weights, prices, current_weight, current_price, result):
+    if sum(current_weight) <= capacity and sum(current_weight) > 0:
+        result.append(current_price)
+        return
+
+    if sum(current_weight) > capacity:
+        return
+
+    for j in range(i, len(weights)):
+        temp_price = current_price + [prices[j]]
+        temp_weight = current_weight + [weights[j]]
+        if weights[j] not in current_weight and prices[j] not in current_price:
+            solve(j, capacity, weights, prices, temp_weight, temp_price, result)
+
+
+
+
+    return
 
     # for i in enumerate(weights):
     #     temp1 = solve(i-1)
@@ -31,4 +43,4 @@ def solve(i, capacity, weights, prices):
 #     return result
 
 
-print(knapsack([2,1,1,3], [2,8,1,10], 4))
+print(knapsack([1, 6, 10, 16], [1, 2, 3, 5], 7))

@@ -1,22 +1,24 @@
 class Solution(object):
     def merge(self, intervals):
+        if len(intervals) < 2: return intervals
 
-
+        results = []
         intervals.sort()
-        result = [intervals[0]]
+        start = intervals[0][0]
+        end = intervals[0][1]
+
         for i in range(1, len(intervals)):
-            current = intervals[i]
-            prev = result[i-1]
+            if intervals[i][0] <= end: #merged interval
+                end = max(end, intervals[i][1])
 
-            if current[0] <= prev[1] and current not in result:
-                prev[1] = current[1]
-                result.append(prev)
+
             else:
-                if current not in result:
-                    result.append(current)
-        return result
+                results.append([start,end]) #add the prev
+                start = intervals[i][0]
+                end = intervals[i][1]
+        results.append([start,end])  #add the current
 
-    #starting at subarray 1, is the beginning equal to or less than the end of the prev, if so, replace the end prev end with the new end
-    #if not merge, move on
+        return results
 
-Solution.merge("", [[1,4],[0,2],[3,5]])
+
+Solution.merge("", [[1,3],[2,6],[8,10],[15,18]])

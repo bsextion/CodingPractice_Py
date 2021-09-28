@@ -9,6 +9,7 @@ class Solution(object):
 
         meetings.sort()
 
+
         count = 0
         for sub_meeting in meetings:
             count += sub_meeting[1]
